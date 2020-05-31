@@ -1,0 +1,57 @@
+<% 
+    is_auth = !session[:user_id].nil?    
+%>  
+
+
+
+
+<nav class="navbar navbar-light navbar-expand-md fixed-top text-nowrap text-right" id="mainNav">
+        <div class="container-fluid"><a class="navbar-brand" href="index.html">Another Blog</a>
+            <div class="row text-right align-items-center">
+                <div class="col text-nowrap text-right">
+                    <div class="row text-nowrap">
+                        <div class="col text-left align-self-center" style="padding-right: 17px;padding-left: 6px;">
+                        
+                        <%if(is_auth) %>
+                        <button class="btn btn-primary" type="button" style="margin-right: 19px;padding-top: 6px;padding-bottom: 6px;padding-left: 25px;">New post</button>
+                        <i class="fa fa-user"></i>
+                        <small style="margin-left: 6px;">
+                            <%= User.find(session[:user_id]).username %>
+                        </small>
+                        <% end %>
+                        </div>
+
+
+                        <% if(is_auth) %>
+                        <div class="col text-left align-self-center">
+                            <%= button_to 'Log out', :log_out,
+                            :class => "btn btn-secondary custom-btn", :method => :post %>
+                                                       
+                        </div>
+                        <% else %>
+                        <div class="col text-left align-self-center">
+                            <%= button_to 'Log in', :log_in,
+                            :class => "btn btn-secondary custom-btn", :method => :get %>
+                        </div> 
+                        <div class="col text-left align-self-center">   
+                            <%= button_to 'Sign in', :sign_in,
+                            :class => "btn btn-secondary custom-btn", :method => :get %>
+                            </div> 
+                        <% end %>
+                            
+                        
+                    </div>
+                </div>
+            </div>
+        </div>
+</nav>
+
+<header class="masthead" style="background-color: rgb(214,214,214);">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-10 col-lg-8 mx-auto">
+                    <div class="site-heading" style="padding-top: 0px;padding-bottom: 64px;"></div>
+                </div>
+            </div>
+        </div>
+</header>

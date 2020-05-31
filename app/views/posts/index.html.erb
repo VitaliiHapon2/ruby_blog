@@ -1,3 +1,8 @@
-<h1>test<h1>
+<%= render partial: "partials/nav_bar"%>
 
-    <%= =%>
+<h1>tes1td <% 'd' %></h1>
+
+<% Post.all.each do |p|%>
+
+    <h3><%= p.text %> </h3>
+<% end %>
