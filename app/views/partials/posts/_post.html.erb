@@ -12,8 +12,13 @@
                 <div class="col-auto text-right align-self-center">
                 <div class="row">
                 <div class="col">
+                <% if(@is_preview) %>
                 <%= button_to 'Read', show_post_path(@post.id),
                 :class => "custom-btn btn btn-primary bg-primary", :method => :get %>
+                <% else %>
+                <%= button_to 'Back', :main_page,
+                :class => "custom-btn btn btn-primary bg-primary", :method => :get %>
+                <% end %>
                 </div>
                    <% if( @post.user.id == session[:user_id]) %>
                    <div class="col">

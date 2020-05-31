@@ -1,0 +1,28 @@
+<div class="container-fluid" style="margin-left: 10px;margin-right: 10px;">
+        <div class="row justify-content-start">
+            <div class="col-8">
+                <div class="border rounded-0" style="padding: 15px;">
+                    <div class="post-preview">
+                        <div class="col">
+                                Comment:
+                                <br></span>
+                            </div>
+                        <div class="row">
+                            <div class="col-auto"><i class="fa fa-user" style="padding-top: -12px;font-size: 68px;"></i></div>
+                            <div class="col align-self-center m-auto"><textarea></textarea></div>
+                        </div>
+
+
+                        <div class="row">
+                            <div class="col"><span><br></span></div>
+                            <div class="col-auto text-right align-self-center">
+                            <%= button_to 'Send', send_comment_path(@post.id),
+                                :class => "custom-btn btn btn-primary bg-secondary", :method => :post %>  
+                        </div>
+                    </div>
+                    <div class="post-preview"><a href="#"></a></div>
+                    <div class="clearfix"></div>
+                </div>
+            </div>
+        </div>
+    </div>

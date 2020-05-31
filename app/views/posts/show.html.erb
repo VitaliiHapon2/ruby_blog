@@ -1,0 +1,18 @@
+<%= render partial: "partials/nav_bar" %>
+<% @is_preview = false %>
+<%= render partial: "partials/posts/post" %>
+<% @is_preview = nil %>
+
+
+<%= render partial: "partials/comments/comment_editor" %>
+<div style="margin-top:2em; margin-left:2em">
+Comments:
+</div>
+<% @post.comments.each do |c|%>
+    <% @comment = c %>
+    <%= render partial: "partials/comments/comment" %>
+    <% @comment = nil %>
+ <% end %>
+
+ 
+    

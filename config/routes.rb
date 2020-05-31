@@ -6,18 +6,25 @@ Rails.application.routes.draw do
   get '/posts/new', to: 'posts#new'
   get '/posts/:id', to: 'posts#show', as: :show_post
   get '/posts/:id/edit', to: 'posts#edit', as: :edit_post
+  get '/login', to: 'login#load', as: :log_in
+  get '/signin', to: 'signin#load', as: :sign_in
+
   patch '/posts/:id', to: 'posts#update'
-  delete '/posts/:id', to: 'posts#delete', as: :delete_post
+
   post '/posts', to: 'posts#create'
+  post '/comment/:id', to: 'comments#send', as: :send_comment
+  post '/signin', to: 'signin#signin'
+  post '/posts/logout', to: 'login#logout', as: :log_out
+  post '/login', to: 'login#login'
+
+  delete '/comment/:id', to: 'comments#create', as: :delete_comment
+  delete '/posts/:id', to: 'posts#comment', as: :delete_post
 
 
 
   
-  get '/login', to: 'login#load', as: :log_in
-  get '/signin', to: 'signin#load', as: :sign_in
 
-  post '/signin', to: 'signin#signin'
-  post '/posts/logout', to: 'login#logout', as: :log_out
-  post '/login', to: 'login#login'
+
+
 
 end
