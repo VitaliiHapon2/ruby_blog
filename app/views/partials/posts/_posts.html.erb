@@ -1,0 +1,8 @@
+ 
+<% @posts.each do |p|%>
+    <% @post = p %>
+    <% @is_preview = true %>
+    <%= render partial: "partials/posts/post" %>
+    <% @is_preview = nil %>
+    <% @post = nil %>
+<% end %>

@@ -1,0 +1,66 @@
+<div class="container">
+<div class="row">
+    <div class="col-md-10 col-lg-8">
+        <div class="post-preview"><a href="#"></a>
+            <div class="row">
+                <div class="col">
+                    <h2 class="post-title">
+                    <%= @post.title %>
+                    </h2>
+                </div>
+                
+                <div class="col-auto text-right align-self-center">
+                <div class="row">
+                <div class="col">
+                <%= button_to 'Read', show_post_path(@post.id),
+                :class => "custom-btn btn btn-primary bg-primary", :method => :get %>
+                </div>
+                   <% if( @post.user.id == session[:user_id]) %>
+                   <div class="col">
+                       <%= button_to 'Edit', edit_post_path(@post.id),
+                        :class => "custom-btn btn btn-primary bg-secondary", :method => :get %>
+                   </div>
+                   <div class="col">
+                       <%= button_to 'Delete', delete_post_path(@post.id),
+                       :class => "custom-btn btn btn-primary bg-secondary", :method => :delete %>
+                   </div>          
+                   <% end %>
+                   </div>
+                   </div>
+                </div>
+                
+            <div class="row">
+                <div class="col" style="color: rgb(118,118,118);">
+                <span class="text-left">
+                   <%= @post.description %>
+                </span></div>
+            </div>
+            <% if(!@is_preview) %>
+            <div class="row">
+                <div class="col">
+                <span class="text-justify" style="font-size: 18px;margin-left: 0px;">
+                   <%= @post.text %>
+                </span></div>
+            </div>
+            <% end %>
+   
+            
+            <p class="post-meta" style="margin-bottom: 8px;margin-top: 20px;">
+            <em>
+               Posted by 
+                   <%= User.where(id: @post.user_id).first.username %>
+                   
+               ,
+                   <%= @post.created_at.strftime("%d.%m.%Y  \t %H:%M")%>
+            </em>
+            <br></p>
+            <p class="post-meta" style="margin-bottom: 8px;">
+            <em>
+               Edited
+               <%= @post.updated_at.strftime("%d.%m.%Y  \t %H:%M")%>
+            </em><br></p>
+        </div>
+        <hr>
+    </div>
+</div>
+</div>

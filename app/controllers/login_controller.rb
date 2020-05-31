@@ -17,10 +17,9 @@ class LoginController < ApplicationController
         unless(user.nil?)
             session[:user_id] = user.id
             @user = user
-
             redirect_to :main_page
         else
-            session[:error_msg] = "Invalid username or password #{user}"
+            session[:error_msg] = "Invalid username or password"
             render_default
             return
         end  

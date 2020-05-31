@@ -3,7 +3,5 @@ class User < ApplicationRecord
     validates :password, presence: true, length: {minimum: 3, maximum: 20}
     has_many :posts, dependent: :destroy
 
-    def find()
-
-    end
+    attr_accessor :confirm
 end

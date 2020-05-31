@@ -1,0 +1,59 @@
+ 
+<div class="container">
+<div class="row">
+    <div class="col-md-10 col-lg-8">
+        <div class="post-preview"><a href="#"></a>
+            <div class="row">
+                <div class="col">
+                    <h2 class="post-title">
+                    <%= @post.title %>
+                    </h2>
+                </div>
+                
+                <div class="col-auto text-right align-self-center">
+                   <% if( @post.user.id == session[:user_id]) %>
+                   <button class="custom-btn btn btn-primary bg-secondary" type="button" >Edit</button>
+                   <button class="custom-btn btn btn-primary bg-secondary" type="button" >Delete</button></div>
+               
+                   <% else %>
+
+                   <button class="custom-btn btn btn-primary bg-secondary" type="button" ></button></div>
+                   <% end %>
+                </div>
+                
+            <div class="row">
+                <div class="col" style="color: rgb(118,118,118);">
+                <span class="text-left">
+                   <%= @post.description %>
+                </span></div>
+            </div>
+            <div class="row">
+                <div class="col">
+                <span class="text-justify" style="font-size: 18px;margin-left: 0px;">
+                   <%= @post.text %>
+                </span></div>
+            </div>
+            <p class="post-meta" style="margin-bottom: 8px;margin-top: 20px;">
+            <em>
+               Posted by 
+                   <%= User.where(id: @post.user_id).first.username %>
+                   
+               ,
+                   <%= p.created_at.strftime("%d.%m.%Y  \t %H:%M")%>
+            </em>
+            <br></p>
+            <p class="post-meta" style="margin-bottom: 8px;">
+            <em>
+               Edited
+               <%= @post.updated_at.strftime("%d.%m.%Y  \t %H:%M")%>
+            </em><br></p>
+        </div>
+        <hr>
+    </div>
+</div>
+</div>
+
+<% @post.comments.each do |c|%>
+    <% @comment = c%>
+    <%= render partial: "partials/comments/comment" %>
+<% end %>

@@ -1,6 +1,5 @@
 class PostsController < ApplicationController
     def index
-        @test = "Test"
         @posts = Post.all
     end
 
@@ -33,6 +32,7 @@ class PostsController < ApplicationController
         @post.destroy
         redirect_to :index
     end
+
 
     private
     def post_params
