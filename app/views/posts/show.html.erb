@@ -4,7 +4,10 @@
 <% @is_preview = nil %>
 
 
+<% unless( session[:user_id].nil?) %>
 <%= render partial: "partials/comments/comment_editor" %>
+<% end %>
+
 <div style="margin-top:2em; margin-left:2em">
 Comments:
 </div>

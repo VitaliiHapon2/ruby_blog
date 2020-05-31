@@ -29,9 +29,29 @@ class PostsController < ApplicationController
 
     def delete
         load_post
-        @post.destroy
-        redirect_to :index
+        unless(@post.nil?)
+            @post.destroy
+        end
+        redirect_to :main_page
     end
+
+    def new_comment
+        form_data = params.require(:comment).permit(:id, :text)
+
+        @com = Comment.new(form_data)
+        @com.user = User.where(id: session[:user_id]).first
+        @com.post = Post.find(params[:id])
+        @com.save
+        
+        puts @com 
+        puts "-----------"
+        puts form_data.inspect
+        puts "-----------"
+        puts @com.inspect
+        puts @com.errors
+        redirect_to request.referrer
+    end
+
 
 
     private
@@ -40,6 +60,9 @@ class PostsController < ApplicationController
     end
 
     def load_post
-        @post = Post.find(params[:id])
+        @p = Post.where(id: params[:id])
+        unless(@p.empty?)
+            @post = Post.find(params[:id])
+        end
     end
 end

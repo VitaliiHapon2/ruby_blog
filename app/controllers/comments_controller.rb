@@ -1,24 +1,35 @@
 class CommentsController < ApplicationController
 
-    def create 
-        #@post = Post.new(post_params)
-        #@post.save
-        redirect_to : :main_page
+    def make_comment
+        form_data = params.require(:comment).permit(:id, :text)
+
+        @com = Comment.new(form_data)
+        @com.user = User.where(id: session[:user_id]).first
+        @com.post_id = form_data[:id]
+        @com.save
+        
+        puts @com 
+        puts "-----------"
+        puts form_data.inspect
+        puts "-----------"
+        puts @com.inspect
+        puts @com.errors
+        redirect_to request.referrer
     end
 
     def delete
-        load_post
-        @post.destroy
-        redirect_to :index
+        load_comment
+        @comm.destroy
+        redirect_to request.referrer
     end
 
 
     private
-    def post_params      
-        params.require(:comment).permit(:id)
+   
+
+    def load_comment
+        @comm = Comment.find(params[:id])
     end
 
-    def load_post
-        @post = Post.find(params[:id])
-    end
+
 end
