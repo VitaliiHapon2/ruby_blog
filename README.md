@@ -2,7 +2,7 @@
 
 My Ruby Blog - "Another Blog"
 
-Feature:
+Features:
   * "Sign up"
   * "Log in"
   * "Log out"
