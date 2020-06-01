@@ -38,15 +38,17 @@
                                                         
                             </div>
                         <% else %>
-                            <div class="col text-left align-self-center">
-                                <%= button_to 'Log in', :log_in,
-                                :class => "btn btn-secondary custom-btn", :method => :get %>
-                            </div> 
+                            <div class="row text-nowrap">
+                                <div class="col text-left align-self-center">
+                                    <%= button_to 'Log in', :log_in,
+                                    :class => "btn btn-secondary custom-btn", :method => :get %>
+                                </div> 
 
-                            <div class="col text-left align-self-center">   
-                                <%= button_to 'Sign in', :sign_in,
-                                :class => "btn btn-secondary custom-btn", :method => :get %>
-                            </div>
+                                <div class="col text-left align-self-center">   
+                                    <%= button_to 'Sign in', :sign_in,
+                                    :class => "btn btn-secondary custom-btn", :method => :get %>
+                                </div>
+                            </div> 
                         <% end %> 
                         </div>
                                          

@@ -32,7 +32,7 @@ category.name = "Nature"
 category.save
 
 post = Post.new
-post.title = "Test artcle"
+post.title = "Test article"
 post.description = "Test article... Nothin interesting"
 post.text = "Hello, world!!! Hello, blog!!! Hello, Ruby!!!"
 post.category = category

@@ -5,10 +5,12 @@
         title = ""
         desc = ""
         text = ""
+        val = ""
     else
         title = @post.title
         desc = @post.description
         text = @post.text
+        val = @post.category.name
 
     end
 %>
@@ -42,7 +44,7 @@
                 
                 
 
-                <%= f.select :category, @arr %>
+                <%= f.select :category, @arr, :selected => val %>
                 <% unless(session[:error_msg].nil?) %>
                 <p class="text-danger text-center" >
                 <%= session[:error_msg] %>

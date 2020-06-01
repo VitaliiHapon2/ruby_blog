@@ -3,11 +3,16 @@
     <div class="col-md-10 col-lg-8">
         <div class="post-preview"><a href="#"></a>
             <div class="row">
-                <div class="col">
-                    <h2 class="post-title">
-                    <%= @post.title %>
-                    </h2>
-                </div>
+
+            <div class="col" >
+                <%= link_to show_post_path(@post.id), :method => :get do %>
+                    
+                        <h2 class="post-title">
+                        <%= @post.title %>
+                        </h2>
+                   
+                <% end %>
+            </div>
                 
                 <div class="col-auto text-right align-self-center">
                 <div class="row">
@@ -38,6 +43,13 @@
                 <div class="col" style="color: rgb(118,118,118);">
                 <span class="text-left">
                    <%= @post.description %>
+                </span></div>
+            </div>
+
+            <div class="row">
+                <div class="col" style="color: rgb(118,118,118);">
+                <span class="text-right font-italic font-weight-lighter text-info">
+                   <%= @post.category.name %>
                 </span></div>
             </div>
             <% if(!@is_preview) %>
