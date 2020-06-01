@@ -1,24 +1,18 @@
 # README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+My Ruby Blog - "Another Blog"
 
-Things you may want to cover:
+Feature:
+  * "Sign up"
+  * "Log in"
+  * "Log out"
+  *  Post preview
+  *  Database
+  *  Comments
+  *  Comments deleting
+  *  Posts creating
+  *  Posts editing
+  *  Posts deleting
+  *  Categories
+  *  Timestamps
 
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
