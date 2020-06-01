@@ -7,7 +7,7 @@
 
 <nav class="navbar navbar-light navbar-expand-md fixed-top text-nowrap text-right" id="mainNav">
     <div class="container-fluid">
-        <a class="navbar-brand" href="./">Another Blog</a>
+        <a class="navbar-brand" href="/posts">Another Blog</a>
             <div class="row text-right align-items-center">
                 <div class="col text-nowrap text-right">
                     <div class="row text-nowrap">
@@ -15,8 +15,9 @@
                         
                         <%if(is_auth) %>
                         
+                        <div class="row text-nowrap">
                         <div class="col text-left align-self-center">
-                            <%= button_to 'New post', :log_in,
+                            <%= button_to 'New post', :create_post,
                             :class => "btn btn-primary", :style => "margin-right: 19px;padding-top: 6px;padding-bottom: 6px;padding-left: 25px;", :method => :get %>
                         </div>
 
@@ -46,7 +47,9 @@
                                 <%= button_to 'Sign in', :sign_in,
                                 :class => "btn btn-secondary custom-btn", :method => :get %>
                             </div>
-                        <% end %>                                          
+                        <% end %> 
+                        </div>
+                                         
                     </div>
                 </div>
             </div>

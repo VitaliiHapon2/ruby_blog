@@ -1,0 +1,61 @@
+<%= render partial: "partials/nav_bar"%>
+
+
+<%= @is_new %>
+
+<% 
+    if(@is_new)
+        title = ""
+        desc = ""
+        text = ""
+    else
+        title = @post.title
+        desc = @post.description
+        text = @post.text
+
+    end
+%>
+<div class="container">
+<div class="row">
+    <div class="col-md-10 col-lg-8">
+        <div class="post-preview"><a href="#"></a>
+            <div class="row">
+                <div class="col">
+                    <h2 class="post-title">Editor</h2>
+                </div>
+            </div>
+            <%= form_for :user, :method => "PATCH" do |f| %>
+            <div class="row" style="margin-bottom: 4px;">
+                <div class="col-4" style="color: rgb(118,118,118);"><span class="text-left">Title:&nbsp;</span></div>
+                <%= f.text_field :title, :value => title,
+                 :style => "width:18em;", :class => "form-control", :required => "true"%>
+            </div>
+            <div class="row" style="margin-bottom: 4px;">
+                <div class="col-4" style="color: rgb(118,118,118);"><span class="text-left" style="margin-bottom: 0px;">Desctription:&nbsp;</span></div>
+                <%= f.text_area :description, :value => desc,
+                :class => "form-control", :required => "true"%>
+            </div>
+            <div class="row" style="margin-bottom: 4px;">
+                <div class="col-4" style="color: rgb(118,118,118);"><span class="text-left">Text:</span></div>
+                <%= f.text_area :text, :value => text,
+                :class => "form-control", :required => "true"%>
+            </div>
+           
+                <div class="col"><span><br></span></div>
+                <div class="col-auto text-right align-self-center">
+                <div class="col text-left align-self-center">
+                    <%= f.submit "Save", :style => "width:18em;", :class => "btn btn-primary btn-sm"%>             
+          
+                    </div> 
+            <% end %> 
+            <div class="row">
+            <div class="col-auto text-right align-self-center", style="top:-2em;right:-15em;">
+            <%= button_to 'Cancel', :cancel_edit,
+                    :class => "btn btn-secondary custom-btn", :method => :get %>
+        
+                 </div> 
+            </div>           
+        <hr>
+    </div>
+</div>
+</div>

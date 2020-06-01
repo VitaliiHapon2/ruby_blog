@@ -43,12 +43,6 @@ class PostsController < ApplicationController
         @com.post = Post.find(params[:id])
         @com.save
         
-        puts @com 
-        puts "-----------"
-        puts form_data.inspect
-        puts "-----------"
-        puts @com.inspect
-        puts @com.errors
         redirect_to request.referrer
     end
 
