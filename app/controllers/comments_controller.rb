@@ -25,7 +25,9 @@ class CommentsController < ApplicationController
 
 
     private
-   
+    def form_data      
+        params.require(:comment).permit(:id, :text)
+    end
 
     def load_comment
         @comm = Comment.find(params[:id])

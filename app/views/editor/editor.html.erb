@@ -1,8 +1,5 @@
 <%= render partial: "partials/nav_bar"%>
 
-
-<%= @is_new %>
-
 <% 
     if(@is_new)
         title = ""
@@ -24,7 +21,7 @@
                     <h2 class="post-title">Editor</h2>
                 </div>
             </div>
-            <%= form_for :user, :method => "PATCH" do |f| %>
+            <%= form_for :post, :method => (@is_new? 'POST':'PATCH'), remote: true do |f| %>
             <div class="row" style="margin-bottom: 4px;">
                 <div class="col-4" style="color: rgb(118,118,118);"><span class="text-left">Title:&nbsp;</span></div>
                 <%= f.text_field :title, :value => title,
@@ -40,7 +37,19 @@
                 <%= f.text_area :text, :value => text,
                 :class => "form-control", :required => "true"%>
             </div>
-           
+
+            <div class="row" style="margin-bottom: 4px;">
+                
+                
+
+                <%= f.select :category, @arr %>
+                <% unless(session[:error_msg].nil?) %>
+                <p class="text-danger text-center" >
+                <%= session[:error_msg] %>
+                <% session[:error_msg] = nil %>
+                </p>
+            <% end %>
+            </div>
                 <div class="col"><span><br></span></div>
                 <div class="col-auto text-right align-self-center">
                 <div class="col text-left align-self-center">

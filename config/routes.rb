@@ -13,9 +13,10 @@ Rails.application.routes.draw do
 
   post '/posts/logout', to: 'login#logout', as: :log_out
   post "/posts/:id", to: 'posts#new_comment', as: :send_comment
-
-  patch '/editor/:id', to: 'editor#update', as: :post_update
+ 
   post  '/editor/new', to: 'editor#save', as: :post_save
+  patch '/editor/:id', to: 'editor#update', as: :post_update
+  
 
   post '/posts', to: 'posts#create'
   post '/signin', to: 'signin#signin'
